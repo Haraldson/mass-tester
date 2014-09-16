@@ -5,6 +5,7 @@ body {
 
 body {
     font-family: sans-serif;
+    background: #222;
 }
 
 #mass-tester {
@@ -29,6 +30,7 @@ body {
     font-size: 10rem;
     text-align: center;
     font-weight: 800;
+    color: #fff;
 }
 
 #meta p:first-child { line-height: 70vh; }
