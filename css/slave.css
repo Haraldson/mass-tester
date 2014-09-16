@@ -23,8 +23,13 @@ body {
 }
 
 #meta p {
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
     font-size: 10rem;
-    line-height: 50vh;
     text-align: center;
     font-weight: 800;
 }
+
+#meta p:first-child { line-height: 65vh; }
+#meta p:last-child { line-height: 35vh; }
