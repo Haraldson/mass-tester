@@ -1,12 +1,16 @@
 html,
 body {
     height: 100vh;
-    position: relative;
-    overflow: hidden;
 }
 
 body {
     font-family: sans-serif;
+}
+
+#mass-tester {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 #meta {
