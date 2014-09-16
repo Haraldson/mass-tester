@@ -4,13 +4,13 @@ $(function()
     var commands = pusher.subscribe('mass-tester');
 
     // Show a web page
-    commands.bind('show', function(data)
+    commands.bind('client-show', function(data)
     {
         console.log(data);
     });
 
     // Open a URL directly
-    commands.bind('open', function(data)
+    commands.bind('client-open', function(data)
     {
         console.log(data);
     });
