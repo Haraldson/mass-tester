@@ -6,8 +6,8 @@ $(function()
 
     var metaString = [
         '<div id="meta">',
-            '<p>' + os.name + ' ' + os.version + '</p>',
             '<p>' + device.vendor + ' ' + device.model + '</p>',
+            '<p>' + os.name + ' ' + os.version + '</p>',
         '</div>'
     ].join('');
 
