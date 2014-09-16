@@ -5,6 +5,11 @@ $(function()
     var pusher = new Pusher('15e714e019131aecff4a');
     var commands = pusher.subscribe('mass-tester');
 
+    commands.bind('pusher:subscription_succeeded', function()
+    {
+        console.log(arguments);
+    });
+
     commands.trigger('show', { url: 'http://www.aftenposten.no/' });
     commands.trigger('open',
     {
