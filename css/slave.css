@@ -31,5 +31,5 @@ body {
     font-weight: 800;
 }
 
-#meta p:first-child { line-height: 65vh; }
-#meta p:last-child { line-height: 35vh; }
+#meta p:first-child { line-height: 70vh; }
+#meta p:last-child { line-height: 30vh; }
