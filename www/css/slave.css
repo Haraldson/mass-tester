@@ -1,0 +1,37 @@
+html,
+body {
+    height: calc(100vh + 1px);
+}
+
+body {
+    font-family: sans-serif;
+    background: #222;
+}
+
+#mass-tester {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#meta {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .05;
+}
+
+#meta p {
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    font-size: 10rem;
+    text-align: center;
+    font-weight: 800;
+    color: #fff;
+}
+
+#meta p:first-child { line-height: 70vh; }
+#meta p:last-child { line-height: 30vh; }

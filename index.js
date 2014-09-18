@@ -1,13 +1,33 @@
-var express = require('express')
-var app = express();
+var express = require('express');
+var Pusher = require('pusher');
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+var app = express(express.logger());
+app.use(express.bodyParser());
 
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-})
+var pusher = new Pusher(
+{
+    appId: '89619',
+    key: '15e714e019131aecff4a',
+    secret: '7f8f536675c058a2008c'
+});
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+app.set('port', (process.env.PORT || 5000));
+app.use(express.static(__dirname + '/www'));
+
+app.get('/', function(request, response)
+{
+    response.send('Hello World!')
+});
+
+app.post('/pusher/auth', function(req, res)
+{
+    var socketId = req.body.socket_id;
+    var channel = req.body.channel_name;
+    var auth = pusher.authenticate(socketId, channel);
+    res.send(auth);
+});
+
+app.listen(app.get('port'), function()
+{
+    console.log("Node app is running at localhost:" + app.get('port'))
+});
