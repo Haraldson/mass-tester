@@ -17,7 +17,7 @@ $(function()
         $body.on('click', 'button.client-refresh', function clientRefresh(e)
         {
             e.preventDefault();
-            commands.trigger('client-refresh');
+            commands.trigger('client-refresh', {});
         });
     });
 });
