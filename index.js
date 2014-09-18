@@ -14,20 +14,16 @@ var pusher = new Pusher(
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/www'));
 
-app.get('/', function(request, response)
-{
-    response.send('Hello World!')
-});
-
 app.post('/pusher/auth', function(req, res)
 {
     var socketId = req.body.socket_id;
     var channel = req.body.channel_name;
     var auth = pusher.authenticate(socketId, channel);
+
     res.send(auth);
 });
 
 app.listen(app.get('port'), function()
 {
-    console.log("Node app is running at localhost:" + app.get('port'))
+    console.log("Node app is running at localhost:" + app.get('port'));
 });
