@@ -10,7 +10,7 @@ $(function()
     {
         $body.on('submit', 'form.open', function(e)
         {
-            e.preventDefault();x
+            e.preventDefault();
             console.log($(this).serializeObject());
             commands.trigger('client-open', $(this).serializeObject());
         });
