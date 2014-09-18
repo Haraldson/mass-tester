@@ -19,7 +19,8 @@ $(function()
     commands.bind('client-open', function(data)
     {
         $body.addClass('flash');
-        
+        console.log(data);
+
         $('<a href="' + data.url + '"></a>')
             .appendTo($body)
             .click()
