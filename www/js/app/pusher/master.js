@@ -11,6 +11,8 @@ $(function()
         $body.on('submit', 'form.open', function(e)
         {
             e.preventDefault();
+            console.log(commands);
+            console.log($(this).serializeObject());
             commands.trigger('client-open', $(this).serializeObject());
         });
     });
