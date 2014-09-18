@@ -6,12 +6,12 @@ $(function()
     // Show a web page
     commands.bind('client-show', function(data)
     {
-        console.log(data);
+        console.log('show', data);
     });
 
     // Open a URL directly
     commands.bind('client-open', function(data)
     {
-        console.log(data);
+        $('<a href="' + data.url '"></a>').trigger('click');
     });
 });
