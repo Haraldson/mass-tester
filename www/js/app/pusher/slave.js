@@ -12,8 +12,10 @@ $(function()
     // Open a URL directly
     commands.bind('client-open', function(data)
     {
-        $('body').text(data.url);
-        $('body').css('background', 'green');
-        $('<a href="' + data.url '"></a>').trigger('click');
+        alert(data);
+        $('<a href="' + data.url '"></a>')
+            .appendTo('body')
+            .trigger('click')
+            .remove();
     });
 });
