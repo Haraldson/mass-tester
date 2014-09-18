@@ -19,9 +19,6 @@ $(function()
     commands.bind('client-open', function(data)
     {
         $body.addClass('flash');
-
-        var $link = $('<a href="' + data.url + '">').click();
-        $body.append($link);
-        $link.eq(0).click();
+        window.location = data.url;
     });
 });
