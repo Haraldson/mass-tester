@@ -66,8 +66,9 @@ button.client-refresh i {
     position: absolute;
     top: 0;
     left: 0;
+    overflow: hidden;
     font-size: 50px;
-    line-height: 100%;
+    line-height: 120px;
     text-align: center;
     color: #fff;
 }
