@@ -10,15 +10,17 @@ $(function()
     var commands = pusher.subscribe('private-mass-tester');
 
     // Show a web page
-    commands.bind('client-show', function(data)
+    commands.bind('client-show', function show(data)
     {
         console.log('show', data);
     });
 
     // Open a URL directly
-    commands.bind('client-open', function(data)
+    commands.bind('client-open', function open(data)
     {
         $body.addClass('flash');
         window.location.href = data.url;
     });
+
+    commands.bind('client-refresh', window.location.reload);
 });

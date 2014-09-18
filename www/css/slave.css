@@ -8,9 +8,15 @@
     to { background: #222; }
 }
 
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
 html,
 body {
-    height: calc(100vh + 1px);
+    height: 100vh;
 }
 
 body {
