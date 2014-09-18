@@ -20,9 +20,8 @@ $(function()
     {
         $body.addClass('flash');
 
-        var $link = $('<a href="' + data.url + '"></a>');
-        console.log($link);
+        var $link = $('<a href="' + data.url + '">');
         $body.append($link);
-        $link.click();
+        $link.eq(0).click();
     });
 });
