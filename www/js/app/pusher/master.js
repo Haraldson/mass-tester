@@ -13,5 +13,11 @@ $(function()
             e.preventDefault();
             commands.trigger('client-open', $(this).serializeObject());
         });
+
+        $body.on('click', 'button.client-refresh', function clientRefresh(e)
+        {
+            e.preventDefault();
+            commands.trigger('client-refresh');
+        });
     });
 });
