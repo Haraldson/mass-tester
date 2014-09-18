@@ -22,9 +22,5 @@ $(function()
         window.location.href = data.url;
     });
 
-    commands.bind('client-refresh', function refresh()
-    {
-        console.log('REFRESH!!')
-        window.location.reload();
-    });
+    commands.bind('client-refresh', window.location.reload.bind(window.location));
 });
