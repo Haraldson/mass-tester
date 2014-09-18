@@ -2,7 +2,7 @@ $(function()
 {
     var $body = $('body');
 
-    Pusher.log = console.log;
+    Pusher.log = console.log.bind(console);
     var pusher = new Pusher('15e714e019131aecff4a');
     var commands = pusher.subscribe('private-mass-tester');
 
