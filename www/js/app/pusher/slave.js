@@ -20,6 +20,5 @@ $(function()
     {
         $body.addClass('flash');
         window.location.href = data.url;
-        window.setTimeout(window.history.back, 500);
     });
 });
