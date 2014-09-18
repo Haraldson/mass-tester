@@ -14,7 +14,8 @@ $(function()
     {
         $('<a href="' + data.url + '"></a>')
             .appendTo('body')
-            .trigger('click')
+            .click()
+            .delay(200)
             .remove();
     });
 });
