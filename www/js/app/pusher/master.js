@@ -8,10 +8,9 @@ $(function()
 
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
-        $body.on('submit', 'form.open', function(e)
+        $body.on('submit', 'form.open', function open(e)
         {
             e.preventDefault();
-            console.log($(this).serializeObject());
             commands.trigger('client-open', $(this).serializeObject());
         });
     });
