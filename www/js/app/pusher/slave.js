@@ -12,8 +12,7 @@ $(function()
     // Open a URL directly
     commands.bind('client-open', function(data)
     {
-        alert(data);
-        $('<a href="' + data.url '"></a>')
+        $('<a href="' + data.url + '"></a>')
             .appendTo('body')
             .trigger('click')
             .remove();
