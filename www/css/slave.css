@@ -1,3 +1,13 @@
+@-webkit-keyframes flash {
+    from { background: #5ca625; }
+    to { background: #222; }
+}
+
+@keyframes flash {
+    from { background: #5ca625; }
+    to { background: #222; }
+}
+
 html,
 body {
     height: calc(100vh + 1px);
@@ -6,6 +16,11 @@ body {
 body {
     font-family: sans-serif;
     background: #222;
+}
+
+body.flash {
+    -webkit-animation: flash 1s ease-in-out 0 1;
+    animation: flash 1s ease-in-out 0 1;
 }
 
 #mass-tester {
