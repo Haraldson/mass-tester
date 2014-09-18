@@ -20,6 +20,6 @@ $(function()
     {
         $body.addClass('flash');
         window.location = data.url;
-        window.setTimeout(History.go.bind(History, -1), 500);
+        window.setTimeout(window.history.back, 500);
     });
 });
