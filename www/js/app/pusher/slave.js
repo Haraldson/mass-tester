@@ -3,7 +3,7 @@ $(function()
     var pusher = new Pusher('15e714e019131aecff4a');
     var commands = pusher.subscribe('private-mass-tester');
 
-    $body = $('body');
+    var $body = $('body');
     $body.on('animationend webkitAnimationEnd', function()
     {
         $(this).removeClass('flash');
@@ -19,12 +19,10 @@ $(function()
     commands.bind('client-open', function(data)
     {
         $body.addClass('flash');
-        console.log(data);
 
-        $('<a href="' + data.url + '"></a>')
-            .appendTo($body)
-            .click()
-            .delay(200)
-            .remove();
+        var $link = $('<a href="' + data.url + '"></a>');
+        console.log($link);
+        $body.append($link);
+        $link.click();
     });
 });
