@@ -7,7 +7,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~3.4.x"
+    "express": "~3.4.x",
+    "pusher": "^1.0.1"
   },
   "engines": {
     "node": "0.10.x"
@@ -25,8 +26,5 @@
   "contributors": [
     "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "pusher": "^1.0.1"
-  }
+  "license": "MIT"
 }
