@@ -19,7 +19,7 @@ $(function()
     commands.bind('client-open', function(data)
     {
         $body.addClass('flash');
-        window.location = data.url;
+        window.location.href = data.url;
         window.setTimeout(window.history.back, 500);
     });
 });
