@@ -15,6 +15,7 @@ $(function()
 
         $.each(clientRegister, function(key, value)
         {
+            console.log(value);
             if(!value.hw in hardwares)
                 hardwares[value.hw] = value.hw;
 
