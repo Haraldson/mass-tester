@@ -20,7 +20,7 @@ $(function()
     {
         $body.addClass('flash');
         window.location.href = data.url;
-        window.setTimeout(window.location.reload.bind(window.location), 50);
+        window.setTimeout(window.location.reload.bind(window.location), 1000); // After animation (hard-coded right now)
     });
 
     commands.bind('client-refresh', window.location.reload.bind(window.location));
