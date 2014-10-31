@@ -27,6 +27,7 @@ $(function()
         {
             hardwareOptions += '<option value="' + value + '">' + value + '</option>';
         });
+        console.log(hardwareOptions);
         $('select#hardware').html(hardwareOptions);
 
         var softwareOptions = '<option value="">All</option>';
@@ -34,6 +35,7 @@ $(function()
         {
             softwareOptions += '<option value="' + value + '">' + value + '</option>';
         });
+        console.log(softwareOptions);
         $('select#software').html(softwareOptions);
     };
 
