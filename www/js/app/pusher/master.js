@@ -8,12 +8,37 @@ $(function()
 
     var clientRegister = {};
 
+    var renderDeviceOptions = function()
+    {
+        var hardwareSelect = $('<select name="hardware"></select>');
+        var hardwareOptions = '';
+        $.each(clientRegister, function()
+        {
+            console.log(arguments);
+        });
+
+        var softwareSelect = $('<select name="software"></select>');
+
+        //$body.find('form').append('<select name="hardware"></select>')
+    };
+
+    commands.bind('pusher:member_added', function(member)
+    {
+        clientRegister[member.id] = {};
+    });
+
+    commands.bind('pusher:member_removed', function(member)
+    {
+        delete clientRegister[member.id];
+        renderDeviceOptions();
+    });
+
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
         commands.bind('client-register', function registerDevice(data)
         {
             clientRegister[data.id] = data.device;
-            console.log(clientRegister);
+            renderDeviceOptions();
         });
 
         $body.on('submit', 'form.open', function open(e)
