@@ -17,7 +17,7 @@ $(function()
         var os = parser.getOS();
         var device = parser.getDevice();
 
-        commands.trigger('register-device',
+        commands.trigger('client-register-device',
         {
             device: device.vendor + ' ' + device.model,
             os: os.name + ' ' + os.version

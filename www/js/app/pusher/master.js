@@ -8,7 +8,7 @@ $(function()
 
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
-        commands.bind('register-device', function registerDevice(data)
+        commands.bind('client-register-device', function registerDevice(data)
         {
             console.log('register device', data);
         });
