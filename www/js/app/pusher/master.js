@@ -10,16 +10,30 @@ $(function()
 
     var renderDeviceOptions = function()
     {
-        var hardwareSelect = $('<select name="hardware"></select>');
-        var hardwareOptions = '';
-        $.each(clientRegister, function()
+        var hardwareOptions = [];
+        var softwareOptions = [];
+        $.each(clientRegister, function(key, value)
         {
-            console.log(arguments);
+            if(hardwareOptions.indexOf(value.hw) == -1)
+                hardwareOptions.push(value.hw);
+
+            if(softwareOptions.indexOf(value.sw) == -1)
+                softwareOptions.push(value.sw);
         });
 
-        var softwareSelect = $('<select name="software"></select>');
+        var $hardwareSelect = $('<select name="hardware"></select>');
+        $.each(hardwareOptions, function(value)
+        {
+            $hardwareSelect.append($('<option value="' + value + '">' + value + '</option>'));
+        });
+        $body.find('form').append($hardwareSelect);
 
-        //$body.find('form').append('<select name="hardware"></select>')
+        var $softwareSelect = $('<select name="software"></select>');
+        $.each(softwareOptions, function(value)
+        {
+            $softwareSelect.append($('<option value="' + value + '">' + value + '</option>'));
+        });
+        $body.find('form').append($softwareSelect);
     };
 
     commands.bind('pusher:member_added', function(member)
