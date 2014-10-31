@@ -10,34 +10,31 @@ $(function()
 
     var renderDeviceOptions = function()
     {
-        var $form = $body.find('form');
+        var hardwares = {};
+        var softwares = {};
 
-        var hardwareOptions = [];
-        var softwareOptions = [];
         $.each(clientRegister, function(key, value)
         {
-            if(hardwareOptions.indexOf(value.hw) == -1)
-                hardwareOptions.push(value.hw);
+            if(!value.hw in hardwares)
+                hardwares[value.hw] = value.hw;
 
-            if(softwareOptions.indexOf(value.sw) == -1)
-                softwareOptions.push(value.sw);
+            if(!value.sw in softwares)
+                softwares[value.sw] = value.sw;
         });
 
-        var $hardwareSelect = $('<select name="hardware"></select>');
-        $.each(hardwareOptions, function(index, value)
+        var hardwareOptions = '<option value="">All</option>';
+        $.each(hardwares, function(key, value)
         {
-            $hardwareSelect.append($('<option value="' + value + '">' + value + '</option>'));
+            hardwareOptions += '<option value="' + value + '">' + value + '</option>';
         });
-        $form.find('select[name="hardware"]').remove();
-        $form.append($hardwareSelect);
+        $('select#hardware').html(hardwareOptions);
 
-        var $softwareSelect = $('<select name="software"></select>');
-        $.each(softwareOptions, function(index, value)
+        var softwareOptions = '<option value="">All</option>';
+        $.each(softwares, function(key, value)
         {
-            $softwareSelect.append($('<option value="' + value + '">' + value + '</option>'));
+            softwareOptions += '<option value="' + value + '">' + value + '</option>';
         });
-        $form.find('select[name="software"]').remove();
-        $form.append($softwareSelect);
+        $('select#software').html(softwareOptions);
     };
 
     commands.bind('pusher:member_added', function(member)
