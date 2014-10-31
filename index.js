@@ -27,8 +27,7 @@ app.post('/pusher/auth', function(req, res)
     var presenceData = {
         user_id: user_id,
         user_info: {
-            name: 'Slave ' + user_id,
-            req: req.body
+            name: 'Slave ' + user_id
         }
     };
 
