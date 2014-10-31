@@ -12,6 +12,7 @@ body {
 body {
     font-family: sans-serif;
     background: #222;
+    background: radial-gradient(ellipse at center, #444 0%, #222 100%);
 }
 
 #mass-tester {
