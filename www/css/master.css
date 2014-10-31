@@ -41,4 +41,8 @@ form input {
     border-bottom: 5px solid rgba(0, 0, 0, .25);
 }
 
-form input:focus { background: rgba(255, 255, 255, .1); }
+form input:focus {
+    background: rgba(255, 255, 255, .1);
+    border-bottom-color: #fff;
+    outline: none;
+}
