@@ -6,6 +6,7 @@ $(function()
         $(this).removeClass('flash');
     });
 
+    Pusher.log = console.log.bind(console);
     var pusher = new Pusher('15e714e019131aecff4a');
     var commands = pusher.subscribe('presence-mass-tester');
 
@@ -15,11 +16,6 @@ $(function()
         var parser = new UAParser();
         var os = parser.getOS();
         var device = parser.getDevice();
-
-        console.log({
-            device: device.vendor + ' ' + device.model,
-            os: os.name + ' ' + os.version
-        });
 
         commands.trigger('register-device',
         {
