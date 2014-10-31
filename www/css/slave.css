@@ -37,7 +37,6 @@ body.flash {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: .05;
 }
 
 #meta p {
@@ -47,7 +46,8 @@ body.flash {
     font-size: 5rem;
     text-align: center;
     font-weight: 800;
-    color: #fff;
+    color: rgba(255, 255, 255, .1);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, .25);
 }
 
 #meta p:first-child { line-height: 70vh; }
