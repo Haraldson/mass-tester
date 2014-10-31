@@ -28,7 +28,7 @@ app.post('/pusher/auth', function(req, res)
         user_id: user_id,
         user_info: {
             name: 'Slave ' + user_id,
-            req: req
+            req: req.body
         }
     };
 
