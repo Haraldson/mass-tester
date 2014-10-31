@@ -28,7 +28,7 @@ $(function()
         {
             $hardwareSelect.append($('<option value="' + value + '">' + value + '</option>'));
         });
-        $form.find('select.hardware').remove();
+        $form.find('select[name="hardware"]').remove();
         $form.append($hardwareSelect);
 
         var $softwareSelect = $('<select name="software"></select>');
@@ -36,7 +36,7 @@ $(function()
         {
             $softwareSelect.append($('<option value="' + value + '">' + value + '</option>'));
         });
-        $form.find('select.software').remove();
+        $form.find('select[name="software"]').remove();
         $form.append($softwareSelect);
     };
 
