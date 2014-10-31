@@ -38,6 +38,8 @@ $(function()
             softwareOptions += '<option value="' + value.value + '" class="' + value.parent + '">' + value.value + '</option>';
         });
         $('select#software').html(softwareOptions);
+
+        $("select#software").chained("select#hardware");
     };
 
     commands.bind('pusher:member_added', function(member)
