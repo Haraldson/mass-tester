@@ -10,14 +10,10 @@
 
 *,
 :before,
-:after {
-    box-sizing: border-box;
-}
+:after { box-sizing: border-box; }
 
 html,
-body {
-    height: 100vh;
-}
+body { height: 100vh; }
 
 body {
     font-family: sans-serif;
@@ -48,7 +44,7 @@ body.flash {
     height: 50vh;
     position: relative;
     overflow: hidden;
-    font-size: 10rem;
+    font-size: 5rem;
     text-align: center;
     font-weight: 800;
     color: #fff;
