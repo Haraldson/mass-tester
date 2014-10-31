@@ -45,7 +45,9 @@ $(function()
             console.log(data);
             var targeted =
                 (data.hardware == 'all' && data.software == 'all') ||
-                (data.hardware == deviceDataHashed.hw && data.software == deviceDataHashed.sw);
+                (data.hardware == deviceDataHashed.hw && data.software == deviceDataHashed.sw) ||
+                (data.hardware == deviceDataHashed.hw && data.software == 'all') ||
+                (data.hardware == 'all' && data.software == deviceDataHashed.sw);
 
             if(!targeted)
                 return;
