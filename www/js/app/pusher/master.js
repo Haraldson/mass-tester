@@ -36,7 +36,7 @@ $(function()
         });
         $('select#hardware').html(hardwareOptions);
 
-        var softwareOptions = '<option value="all">All</option>';
+        var softwareOptions = '<option value="all" class="all">All</option>';
         $.each(softwares, function(key, value)
         {
             softwareOptions += '<option value="' + key + '" class="hash-' + value.chained + '">' + value.text + '</option>';
