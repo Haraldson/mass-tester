@@ -16,6 +16,11 @@ $(function()
         var os = parser.getOS();
         var device = parser.getDevice();
 
+        console.log({
+            device: device.vendor + ' ' + device.model,
+            os: os.name + ' ' + os.version
+        });
+
         commands.trigger('register-device',
         {
             device: device.vendor + ' ' + device.model,
