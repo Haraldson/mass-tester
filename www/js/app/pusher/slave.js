@@ -17,13 +17,20 @@ $(function()
         var os = parser.getOS();
         var device = parser.getDevice();
 
+        var deviceData = {
+            hw: device.vendor + ' ' + device.model,
+            sw: os.name + ' ' + os.version
+        };
+
+        var deviceDataHashed = {
+            hw: CryptoJS.HmacSHA256(deviceData.hw, 'hard'),
+            sw: CryptoJS.HmacSHA256(deviceData.sw, 'soft')
+        };
+
         commands.trigger('client-register',
         {
             id: data.me.id,
-            device: {
-                hw: device.vendor + ' ' + device.model,
-                sw: os.name + ' ' + os.version
-            }
+            device: deviceData
         });
 
         // Show a web page
@@ -35,6 +42,14 @@ $(function()
         // Open a URL directly
         commands.bind('client-open', function open(data)
         {
+            console.log(data);
+            var targeted =
+                (data.hardware == 'all' && data.software == 'all') ||
+                (data.hardware == deviceDataHashed.hw && data.software == deviceDataHashed.sw);
+
+            if(!targeted)
+                return;
+
             $body.addClass('flash');
             window.location.href = data.url;
             window.setTimeout(window.location.reload.bind(window.location), 1000); // After animation (hard-coded right now)

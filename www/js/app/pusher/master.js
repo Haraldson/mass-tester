@@ -15,11 +15,11 @@ $(function()
 
         $.each(clientRegister, function(key, value)
         {
-            var hwHashed =  CryptoJS.HmacSHA256(value.hw, 'hard');
+            var hwHashed = CryptoJS.HmacSHA256(value.hw, 'hard');
             if(!(hwHashed in hardwares))
                 hardwares[hwHashed] = value.hw;
 
-            var swHashed =  CryptoJS.HmacSHA256(value.sw, 'soft');
+            var swHashed = CryptoJS.HmacSHA256(value.sw, 'soft');
             if(!(swHashed in softwares))
             {
                 softwares[swHashed] = {
@@ -29,17 +29,17 @@ $(function()
             }
         });
 
-        var hardwareOptions = '<option value="">All</option>';
+        var hardwareOptions = '<option value="all">All</option>';
         $.each(hardwares, function(key, value)
         {
-            hardwareOptions += '<option value="' + key + '">' + value + '</option>';
+            hardwareOptions += '<option value="hash-' + key + '">' + value + '</option>';
         });
         $('select#hardware').html(hardwareOptions);
 
-        var softwareOptions = '<option value="">All</option>';
+        var softwareOptions = '<option value="all">All</option>';
         $.each(softwares, function(key, value)
         {
-            softwareOptions += '<option value="' + key + '" class="' + value.chained + '">' + value.text + '</option>';
+            softwareOptions += '<option value="' + key + '" class="hash-' + value.chained + '">' + value.text + '</option>';
         });
         $('select#software').html(softwareOptions);
 
@@ -74,7 +74,11 @@ $(function()
             if('url' in data && data.url == '')
                 commands.trigger('client-refresh', {});
             else
+            {
+                data.hardware = data.hardware.replace(/hash-/, '');
+                data.software = data.software.replace(/hash-/, '');
                 commands.trigger('client-open', data);
+            }
         });
     });
 });
