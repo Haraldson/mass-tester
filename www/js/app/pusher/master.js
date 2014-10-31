@@ -6,15 +6,14 @@ $(function()
     var pusher = new Pusher('15e714e019131aecff4a', { encrypted: true });
     var commands = pusher.subscribe('presence-mass-tester');
 
-    var clientRegister = [];
+    var clientRegister = {};
 
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
-        
         commands.bind('client-register-device', function registerDevice(data)
         {
-            clientRegister.push()
-            console.log('register device', data);
+            clientRegister[data.id] = data.device;
+            console.log(clientRegister);
         });
 
         $body.on('submit', 'form.open', function open(e)

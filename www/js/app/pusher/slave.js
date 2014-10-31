@@ -12,17 +12,18 @@ $(function()
 
     commands.bind('pusher:subscription_succeeded', function subscribed(data)
     {
-        console.log(data);
-
         // Gather device info
         var parser = new UAParser();
         var os = parser.getOS();
         var device = parser.getDevice();
 
-        commands.trigger('client-register-device',
+        commands.trigger('client-register',
         {
-            device: device.vendor + ' ' + device.model,
-            os: os.name + ' ' + os.version
+            id: data.me.id,
+            device: {
+                hw: device.vendor + ' ' + device.model,
+                sw: os.name + ' ' + os.version
+            }
         });
 
         // Show a web page
