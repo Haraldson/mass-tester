@@ -19,7 +19,10 @@ $(function()
                 hardwares[value.hw] = value.hw;
 
             if(!(value.sw in softwares))
-                softwares[value.sw] = value.sw;
+                softwares[value.sw] = {
+                    value: value.sw,
+                    parent: value.hw
+                };
         });
 
         var hardwareOptions = '<option value="">All</option>';
@@ -32,7 +35,7 @@ $(function()
         var softwareOptions = '<option value="">All</option>';
         $.each(softwares, function(key, value)
         {
-            softwareOptions += '<option value="' + value + '">' + value + '</option>';
+            softwareOptions += '<option value="' + value.value + '" class="' + value.parent + '">' + value.value + '</option>';
         });
         $('select#software').html(softwareOptions);
     };
