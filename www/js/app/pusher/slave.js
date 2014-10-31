@@ -7,21 +7,35 @@ $(function()
     });
 
     var pusher = new Pusher('15e714e019131aecff4a');
-    var commands = pusher.subscribe('presence-mass-tester', { foo: 'bar' });
+    var commands = pusher.subscribe('presence-mass-tester');
 
-    // Show a web page
-    commands.bind('client-show', function show(data)
+    commands.bind('pusher:subscription_succeeded', function subscribed()
     {
-        console.log('show', data);
-    });
+        // Gather device info
+        var parser = new UAParser();
+        var os = parser.getOS();
+        var device = parser.getDevice();
 
-    // Open a URL directly
-    commands.bind('client-open', function open(data)
-    {
-        $body.addClass('flash');
-        window.location.href = data.url;
-        window.setTimeout(window.location.reload.bind(window.location), 1000); // After animation (hard-coded right now)
-    });
+        commands.trigger('register-device',
+        {
+            device: device.vendor + ' ' + device.model,
+            os: os.name + ' ' + os.version
+        });
 
-    commands.bind('client-refresh', window.location.reload.bind(window.location));
+        // Show a web page
+        commands.bind('client-show', function show(data)
+        {
+            console.log('show', data);
+        });
+
+        // Open a URL directly
+        commands.bind('client-open', function open(data)
+        {
+            $body.addClass('flash');
+            window.location.href = data.url;
+            window.setTimeout(window.location.reload.bind(window.location), 1000); // After animation (hard-coded right now)
+        });
+
+        commands.bind('client-refresh', window.location.reload.bind(window.location));
+    });
 });

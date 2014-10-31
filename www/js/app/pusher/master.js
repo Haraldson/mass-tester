@@ -8,6 +8,11 @@ $(function()
 
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
+        commands.bind('register-device', function registerDevice(data)
+        {
+            console.log('register device', data);
+        });
+
         $body.on('submit', 'form.open', function open(e)
         {
             e.preventDefault();
