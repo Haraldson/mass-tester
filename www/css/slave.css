@@ -1,11 +1,11 @@
 @-webkit-keyframes flash {
     from { background: #5ca625; }
-    to { background: #222; }
+    to { background: transparent; }
 }
 
 @keyframes flash {
     from { background: #5ca625; }
-    to { background: #222; }
+    to { background: transparent; }
 }
 
 *,
@@ -18,9 +18,10 @@ body { height: 100vh; }
 body {
     font-family: sans-serif;
     background: #222;
+    background: radial-gradient(ellipse at center, #444 0%, #222 100%);
 }
 
-body.flash {
+body.flash #mass-tester {
     -webkit-animation: flash 1s ease-in-out 0 1;
     animation: flash 1s ease-in-out 0 1;
 }
