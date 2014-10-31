@@ -10,8 +10,10 @@ $(function()
     var pusher = new Pusher('15e714e019131aecff4a', { encrypted: true });
     var commands = pusher.subscribe('presence-mass-tester');
 
-    commands.bind('pusher:subscription_succeeded', function subscribed()
+    commands.bind('pusher:subscription_succeeded', function subscribed(data)
     {
+        console.log(data);
+
         // Gather device info
         var parser = new UAParser();
         var os = parser.getOS();
