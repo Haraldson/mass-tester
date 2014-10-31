@@ -15,27 +15,31 @@ $(function()
 
         $.each(clientRegister, function(key, value)
         {
-            if(!(value.hw in hardwares))
-                hardwares[value.hw] = value.hw;
+            var hwHashed =  CryptoJS.HmacSHA256(value.hw, 'hard');
+            if(!(hwHashed in hardwares))
+                hardwares[hwHashed] = value.hw;
 
-            if(!(value.sw in softwares))
-                softwares[value.sw] = {
-                    value: value.sw,
-                    parent: value.hw
+            var swHashed =  CryptoJS.HmacSHA256(value.sw, 'soft');
+            if(!(swHashed in softwares))
+            {
+                softwares[swHashed] = {
+                    text: value.sw,
+                    chained: hwHashed
                 };
+            }
         });
 
         var hardwareOptions = '<option value="">All</option>';
         $.each(hardwares, function(key, value)
         {
-            hardwareOptions += '<option value="' + value + '">' + value + '</option>';
+            hardwareOptions += '<option value="' + key + '">' + value + '</option>';
         });
         $('select#hardware').html(hardwareOptions);
 
         var softwareOptions = '<option value="">All</option>';
         $.each(softwares, function(key, value)
         {
-            softwareOptions += '<option value="' + value.value + '" class="' + value.parent + '">' + value.value + '</option>';
+            softwareOptions += '<option value="' + key + '" class="' + value.chained + '">' + value.text + '</option>';
         });
         $('select#software').html(softwareOptions);
 
