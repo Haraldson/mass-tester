@@ -7,7 +7,7 @@ $(function()
     });
 
     var pusher = new Pusher('15e714e019131aecff4a');
-    var commands = pusher.subscribe('private-mass-tester', { foo: 'bar' });
+    var commands = pusher.subscribe('presence-mass-tester');
 
     // Show a web page
     commands.bind('client-show', function show(data)

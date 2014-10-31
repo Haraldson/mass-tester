@@ -14,12 +14,24 @@ var pusher = new Pusher(
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/www'));
 
+var userIds = [];
+
 app.post('/pusher/auth', function(req, res)
 {
     var socketId = req.body.socket_id;
     var channel = req.body.channel_name;
-    var auth = pusher.authenticate(socketId, channel);
 
+    var user_id = userIds.length + 1;
+    userIds.push(user_id);
+
+    var presenceData = {
+        user_id: user_id,
+        user_info: {
+            name: 'Slave ' + user_id
+        }
+    };
+
+    var auth = pusher.authenticate(socketId, channel, presenceData);
     res.send(auth);
 });
 

@@ -4,7 +4,7 @@ $(function()
 
     Pusher.log = console.log.bind(console);
     var pusher = new Pusher('15e714e019131aecff4a');
-    var commands = pusher.subscribe('private-mass-tester');
+    var commands = pusher.subscribe('presence-mass-tester');
 
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
