@@ -11,13 +11,12 @@ $(function()
         $body.on('submit', 'form.open', function open(e)
         {
             e.preventDefault();
-            commands.trigger('client-open', $(this).serializeObject());
-        });
 
-        $body.on('click', 'button.client-refresh', function clientRefresh(e)
-        {
-            e.preventDefault();
-            commands.trigger('client-refresh', {});
+            var data = $(this).serializeObject();
+            if('url' in data && data.url == '')
+                commands.trigger('client-refresh', {});
+            else
+                commands.trigger('client-open', data);
         });
     });
 });
