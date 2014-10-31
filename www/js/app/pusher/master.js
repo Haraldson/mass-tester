@@ -10,7 +10,7 @@ $(function()
 
     commands.bind('pusher:subscription_succeeded', function subscribed()
     {
-        commands.bind('client-register-device', function registerDevice(data)
+        commands.bind('client-register', function registerDevice(data)
         {
             clientRegister[data.id] = data.device;
             console.log(clientRegister);
