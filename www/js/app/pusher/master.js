@@ -15,30 +15,25 @@ $(function()
 
         $.each(clientRegister, function(key, value)
         {
-            console.log(value);
-            if(!value.hw in hardwares)
+            if(!(value.hw in hardwares))
                 hardwares[value.hw] = value.hw;
 
-            if(!value.sw in softwares)
+            if(!(value.sw in softwares))
                 softwares[value.sw] = value.sw;
         });
 
         var hardwareOptions = '<option value="">All</option>';
-        console.log(hardwares);
         $.each(hardwares, function(key, value)
         {
             hardwareOptions += '<option value="' + value + '">' + value + '</option>';
         });
-        console.log(hardwareOptions);
         $('select#hardware').html(hardwareOptions);
 
         var softwareOptions = '<option value="">All</option>';
-        console.log(softwares);
         $.each(softwares, function(key, value)
         {
             softwareOptions += '<option value="' + value + '">' + value + '</option>';
         });
-        console.log(softwareOptions);
         $('select#software').html(softwareOptions);
     };
 
