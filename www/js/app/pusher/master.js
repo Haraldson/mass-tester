@@ -29,14 +29,14 @@ $(function()
             }
         });
 
-        var hardwareOptions = '<option value="all">All</option>';
+        var hardwareOptions = '<option value="">All</option>';
         $.each(hardwares, function(key, value)
         {
             hardwareOptions += '<option value="hash-' + key + '">' + value + '</option>';
         });
         $('select#hardware').html(hardwareOptions);
 
-        var softwareOptions = '<option value="all" class="all">All</option>';
+        var softwareOptions = '<option value="" class="all">All</option>';
         $.each(softwares, function(key, value)
         {
             softwareOptions += '<option value="' + key + '" class="hash-' + value.chained + '">' + value.text + '</option>';

@@ -1,10 +1,7 @@
 $(function()
 {
     var $body = $('body');
-    $body.on('animationend webkitAnimationEnd', function()
-    {
-        $(this).removeClass('flash');
-    });
+    $body.on('animationend webkitAnimationEnd', function() { $(this).removeClass('flash'); });
 
     Pusher.log = console.log.bind(console);
     var pusher = new Pusher('15e714e019131aecff4a', { encrypted: true });
@@ -42,12 +39,11 @@ $(function()
         // Open a URL directly
         commands.bind('client-open', function open(data)
         {
-            console.log(data);
             var targeted =
-                (data.hardware == 'all' && data.software == 'all') ||
+                (data.hardware == '' && data.software == '') ||
                 (data.hardware == deviceDataHashed.hw && data.software == deviceDataHashed.sw) ||
-                (data.hardware == deviceDataHashed.hw && data.software == 'all') ||
-                (data.hardware == 'all' && data.software == deviceDataHashed.sw);
+                (data.hardware == deviceDataHashed.hw && data.software == '') ||
+                (data.hardware == '' && data.software == deviceDataHashed.sw);
 
             if(!targeted)
                 return;
